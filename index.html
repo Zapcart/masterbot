@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shaikh Ehsan Bots</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -238,22 +237,21 @@
         document.getElementById("payment").style.display = "block";
       }
 
-function showWhatsApp() {
-  const market = document.getElementById("market").value;
-  const botType = document.getElementById("botType").value;
-  const price = prices[market][botType];
+      function showWhatsApp() {
+        const market = document.getElementById("market").value;
+        const botType = document.getElementById("botType").value;
+        const price = prices[market][botType];
 
-  const message = `Hello, I have completed the payment.%0A%0AMy Details:%0A- Market: ${market}%0A- Bot Type: ${
-    botType === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
-  }%0A- Price Paid: ₹${price}%0A%0ARequesting confirmation.`;
+        const message = `Hello, I have completed the payment.%0A%0AMy Details:%0A- Market: ${market}%0A- Bot Type: ${
+          botType === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
+        }%0A- Price Paid: ₹${price}%0A%0ARequesting confirmation.`;
 
-  const link = 'https://wa.me/919960824574?text=${message}';
+        const link = https://wa.me/919960824574?text=${message};
 
-  const whatsappLink = document.getElementById("whatsappLink");
-  whatsappLink.href = link;
-  whatsappLink.style.display = "inline-block";
-  document.getElementById("whatsapp").style.display = "block";
-}
+        const whatsappLink = document.getElementById("whatsappLink");
+        whatsappLink.href = link;
+        whatsappLink.style.display = "inline-block";
+        document.getElementById("whatsapp").style.display = "block";
       }
     </script>
   </body>
