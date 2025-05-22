@@ -1,166 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shaikh Ehsan Bots</title>
-  <style>
-    body {
-      background: #0f0f0f;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header, section, .content-block {
-      padding: 2rem 1rem;
-    }
-    h1, h2 {
-      color: #00ffcc;
-    }
-    select, button {
-      padding: 0.7rem;
-      margin: 1rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: none;
-    }
-    #summary, #payment, #whatsapp {
-      display: none;
-      margin-top: 2rem;
-    }
-    .qr-code {
-      margin-top: 1rem;
-    }
-    .btn {
-      background-color: #28a745;
-      color: white;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background-color: #218838;
-    }
-    img {
-      width: 200px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Welcome to Shaikh Ehsan's Trading Bots</h1>
-    <p>5+ Years Experience in Automated & Signal-Based Trading</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shaikh Ehsan Bots</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        color: #ffffff;
+        line-height: 1.6;
+      }
+      header {
+        padding: 4rem 1rem;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.4);
+      }
+      header h1 {
+        font-size: 2.5rem;
+        color: #00ffcc;
+        margin-bottom: 1rem;
+      }
+      header p {
+        font-size: 1.2rem;
+        opacity: 0.8;
+      }
+      section {
+        padding: 3rem 1rem;
+        max-width: 1000px;
+        margin: auto;
+      }
+      h2 {
+        text-align: center;
+        color: #00ffaa;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: transform 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      select, button {
+        padding: 0.7rem;
+        margin: 1rem 0.5rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: none;
+        min-width: 200px;
+      }
+      .btn {
+        background-color: #28a745;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .btn:hover {
+        background-color: #218838;
+      }
+      #summary, #payment, #whatsapp {
+        display: none;
+        margin-top: 2rem;
+        text-align: center;
+      }
+      .qr-code img {
+        width: 200px;
+        margin: 1rem auto;
+        display: block;
+      }
+      .faq {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-top: 3rem;
+      }
+      .faq h3 {
+        color: #00ffcc;
+        margin-bottom: 1rem;
+      }
+      .faq-item + .faq-item {
+        margin-top: 1rem;
+      }
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background: rgba(0,0,0,0.4);
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Shaikh Ehsan's Trading Bots</h1>
+      <p>Automate Your Profits | 5+ Years Experience in Algo Trading</p>
+    </header>
 
-  <section class="content-block">
-    <h2>About Me</h2>
-    <p>I am <strong>Shaikh Ehsan</strong>, a professional trader with over 5 years of experience in Indian, Crypto, Forex, and Binary markets. I develop custom bots that help traders automate their strategies or receive real-time signals on Telegram.</p>
-  </section>
+    <section>
+      <h2>Why Choose My Bots?</h2>
+      <div class="features">
+        <div class="card">
+          <h3>✅ Proven Performance</h3>
+          <p>Backtested bots across Indian, Crypto, Forex & Binary markets.</p>
+        </div>
+        <div class="card">
+          <h3>✅ Real-Time Signals</h3>
+          <p>Get actionable trade alerts on Telegram with lightning speed.</p>
+        </div>
+        <div class="card">
+          <h3>✅ Fully Automated</h3>
+          <p>Hands-free trading experience, coded and optimized for results.</p>
+        </div>
+        <div class="card">
+          <h3>✅ Direct Support</h3>
+          <p>WhatsApp support after payment for onboarding and guidance.</p>
+        </div>
+      </div>
+    </section>
 
-  <section class="content-block">
-    <h2>Why Use My Bots?</h2>
-    <ul style="list-style: none; padding: 0;">
-      <li>✅ Proven track record in multiple markets</li>
-      <li>✅ Real-time Telegram signal bots for fast decisions</li>
-      <li>✅ Fully automated trading bots – no manual action required</li>
-      <li>✅ Affordable pricing with premium performance</li>
-      <li>✅ Direct support on WhatsApp after purchase</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Get Your Bot</h2>
+      <label for="market">Select Market:</label><br />
+      <select id="market">
+        <option value="">--Select--</option>
+        <option value="Indian">Indian Market</option>
+        <option value="Crypto">Crypto Market</option>
+        <option value="Forex">Forex Market</option>
+        <option value="Binary">Binary Market</option>
+      </select><br />
 
-  <section class="content-block">
-    <h2>Get Your Bot</h2>
-    <p>Select your market and preferred bot type below:</p>
+      <label for="botType">Select Bot Type:</label><br />
+      <select id="botType">
+        <option value="">--Select--</option>
+        <option value="Auto">Auto-Trading Bot</option>
+        <option value="Signal">Telegram Signal Bot</option>
+      </select><br />
 
-    <label for="market">Select Market:</label>
-    <select id="market">
-      <option value="">--Select--</option>
-      <option value="Indian">Indian Market</option>
-      <option value="Crypto">Crypto Market</option>
-      <option value="Forex">Forex Market</option>
-      <option value="Binary">Binary Market</option>
-    </select>
+      <button class="btn" onclick="showSummary()">Show Price</button>
+    </section>
 
-    <label for="botType">Select Bot Type:</label>
-    <select id="botType">
-      <option value="">--Select--</option>
-      <option value="Auto">Auto-Trading Bot</option>
-      <option value="Signal">Telegram Signal Bot</option>
-    </select>
-
-    <button class="btn" onclick="showSummary()">Show Price</button>
-  </section>
-
-  <div id="summary">
-    <h3>Summary</h3>
-    <p id="details"></p>
-    <button class="btn" onclick="showPayment()">I Want This Bot</button>
-  </div>
-
-  <div id="payment">
-    <h3>Make Payment</h3>
-    <p>Pay the amount to UPI: <strong>9960824574@upi</strong></p>
-    <div class="qr-code">
-      <img src="your-qr-code.png" alt="UPI QR Code" />
+    <div id="summary">
+      <h3>Summary</h3>
+      <p id="details"></p>
+      <button class="btn" onclick="showPayment()">I Want This Bot</button>
     </div>
-    <button class="btn" onclick="showWhatsApp()">I Have Paid</button>
-  </div>
 
-  <div id="whatsapp">
-    <a id="whatsappLink" class="btn" target="_blank">Contact on WhatsApp</a>
-  </div>
+    <div id="payment">
+      <h3>Make Payment</h3>
+      <p>Pay via UPI: <strong>9960824574@upi</strong></p>
+    <div class="qr-code">
+  <img src="qr-code.png" alt="UPI QR Code" />
+ </div>
+      <button class="btn" onclick="showWhatsApp()">I Have Paid</button>
+    </div>
 
-  <script>
-    const prices = {
-      Indian: { Auto: 8000, Signal: 4000 },
-      Crypto: { Auto: 6000, Signal: 3500 },
-      Forex: { Auto: 16000, Signal: 8000 },
-      Binary: { Auto: null, Signal: 10000 }
-    };
+    <div id="whatsapp">
+      <a id="whatsappLink" class="btn" target="_blank">
+        <i class="fab fa-whatsapp"></i> Contact on WhatsApp Now
+      </a>
+    </div>
 
-    function showSummary() {
-      const market = document.getElementById('market').value;
-      const botType = document.getElementById('botType').value;
-      const summary = document.getElementById('summary');
-      const details = document.getElementById('details');
+    <section class="faq">
+      <h3>FAQs</h3>
+      <div class="faq-item">
+        <strong>Which platforms are supported?</strong>
+        <p>We support Indian brokers, Binance, MT4/MT5 and more.</p>
+      </div>
+      <div class="faq-item">
+        <strong>Can I get a demo?</strong>
+        <p>Yes! Contact me on WhatsApp and I'll share a walkthrough.</p>
+      </div>
+      <div class="faq-item">
+        <strong>What if I face any issues?</strong>
+        <p>You'll get direct support from me after purchase.</p>
+      </div>
+    </section>
 
-      if (!market || !botType) {
-        alert("Please select both market and bot type.");
-        return;
+    <footer>
+      &copy; 2025 Shaikh Ehsan | All rights reserved
+    </footer>
+
+    <script>
+      const prices = {
+        Indian: { Auto: 4000, Signal: 1500 },
+        Crypto: { Auto: 4000, Signal: 1500 },
+        Forex: { Auto: 4000, Signal: 1500 },
+        Binary: { Auto: 4000, Signal: 1500 },
+      };
+
+      function showSummary() {
+        const market = document.getElementById("market").value;
+        const botType = document.getElementById("botType").value;
+        const summary = document.getElementById("summary");
+        const details = document.getElementById("details");
+
+        if (!market || !botType) {
+          alert("Please select both market and bot type.");
+          return;
+        }
+
+        const price = prices[market][botType];
+
+        if (price === null) {
+          details.innerHTML = Auto-Trading Bot not available for ${market} market.;
+          summary.style.display = "block";
+          return;
+        }
+
+        details.innerHTML = `Market: <strong>${market}</strong><br>Bot Type: <strong>${
+          botType === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
+        }</strong><br>Price: ₹${price}`;
+        summary.style.display = "block";
       }
 
-      const price = prices[market][botType];
-
-      if (price === null) {
-        details.innerHTML = Auto-Trading Bot not available for ${market} Market.;
-        summary.style.display = 'block';
-        document.getElementById('payment').style.display = 'none';
-        document.getElementById('whatsapp').style.display = 'none';
-        return;
+      function showPayment() {
+        document.getElementById("payment").style.display = "block";
       }
 
-      details.innerHTML = Market: <strong>${market}</strong><br>Bot Type: <strong>${botType === 'Auto' ? 'Auto-Trading Bot' : 'Telegram Signal Bot'}</strong><br>Price: ₹${price};
-      summary.style.display = 'block';
-    }
+      function showWhatsApp() {
+        const market = document.getElementById("market").value;
+        const botType = document.getElementById("botType").value;
+        const price = prices[market][botType];
 
-    function showPayment() {
-      document.getElementById('payment').style.display = 'block';
-    }
+        const message = `Hello, I have completed the payment.%0A%0AMy Details:%0A- Market: ${market}%0A- Bot Type: ${
+          botType === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
+        }%0A- Price Paid: ₹${price}%0A%0ARequesting confirmation.`;
 
-    function showWhatsApp() {
-      const market = document.getElementById('market').value;
-      const botType = document.getElementById('botType').value;
-      const price = prices[market][botType];
+        const link = https://wa.me/919960824574?text=${message};
 
-      const message = Hello, I have completed the payment.%0A%0AHere are my details:%0A- Market: ${market}%0A- Bot Type: ${botType === 'Auto' ? 'Auto-Trading Bot' : 'Telegram Signal Bot'}%0A- Price Paid: ₹${price}%0A%0AI would like to get this bot. Please confirm.;
-
-      const link = https://wa.me/919960824574?text=${message};
-
-      const whatsappLink = document.getElementById('whatsappLink');
-      whatsappLink.href = link;
-      whatsappLink.innerText = "Contact on WhatsApp Now";
-      document.getElementById('whatsapp').style.display = 'block';
-    }
-  </script>
-</body>
+        const whatsappLink = document.getElementById("whatsappLink");
+        whatsappLink.href = link;
+        whatsappLink.style.display = "inline-block";
+        document.getElementById("whatsapp").style.display = "block";
+      }
+    </script>
+  </body>
 </html>
