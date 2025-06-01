@@ -15,27 +15,29 @@
       }
       body {
         font-family: 'Poppins', sans-serif;
-        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        background: #0e0e0e;
         color: #ffffff;
         line-height: 1.6;
       }
       header {
-        padding: 4rem 1rem;
+        padding: 4rem 1rem 2rem;
         text-align: center;
-        background: rgba(0, 0, 0, 0.4);
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
       }
       header img {
         max-width: 150px;
         margin-bottom: 1rem;
       }
       header h1 {
-        font-size: 2.5rem;
-        color: #00ffcc;
+        font-size: 2.8rem;
+        color: #fff;
         margin-bottom: 1rem;
       }
       header p {
         font-size: 1.2rem;
-        opacity: 0.8;
+        opacity: 0.9;
       }
       section {
         padding: 3rem 1rem;
@@ -46,7 +48,7 @@
         text-align: center;
         color: #00ffaa;
         font-size: 2rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
       }
       .features {
         display: grid;
@@ -54,46 +56,45 @@
         gap: 1.5rem;
       }
       .card {
-        background: rgba(255, 255, 255, 0.05);
+        background: #1e1e1e;
         padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        transition: transform 0.3s, background-color 0.3s;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 255, 204, 0.15);
+        transition: transform 0.3s, box-shadow 0.3s;
       }
       .card:hover {
-        transform: translateY(-5px);
-        background-color: rgba(0, 255, 204, 0.1);
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0, 255, 204, 0.25);
       }
       select, button {
-        padding: 0.7rem;
+        padding: 0.8rem 1rem;
         margin: 1rem 0.5rem;
         font-size: 1rem;
-        border-radius: 8px;
+        border-radius: 12px;
         border: none;
-        min-width: 200px;
+        min-width: 220px;
+      }
+      select {
+        background: #2c2c2c;
+        color: #fff;
       }
       .btn {
-        background-color: #28a745;
+        background-color: #00cc88;
         color: white;
         cursor: pointer;
         transition: background-color 0.3s;
       }
       .btn:hover {
-        background-color: #218838;
+        background-color: #009f6b;
       }
       #summary, #payment, #whatsapp {
         display: none;
         margin-top: 2rem;
         text-align: center;
       }
-      .qr-code img {
-        width: 200px;
-        margin: 1rem auto;
-        display: block;
-      }
       .faq {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
+        background: #1a1a1a;
+        border-radius: 16px;
         padding: 2rem;
         margin-top: 3rem;
       }
@@ -107,7 +108,7 @@
       footer {
         text-align: center;
         padding: 1rem;
-        background: rgba(0,0,0,0.4);
+        background: #111;
         font-size: 0.9rem;
         color: #aaa;
       }
@@ -117,36 +118,18 @@
     <header>
       <img src="ark-logo.png" alt="Ark Algo Labs Logo">
       <h1>Ark Algo Labs</h1>
-     <p>Automate Your Profits | 5+ Years Experience in Algo Trading</p>
+      <p>Automate Your Profits | 5+ Years Experience in Algo Trading</p>
     </header>
 
     <section>
       <h2>Why Choose Our Bots?</h2>
       <div class="features">
-        <div class="card">
-          <h3>✅ Proven Performance</h3>
-          <p>Backtested bots across Indian, Crypto, Forex & Binary markets.</p>
-        </div>
-        <div class="card">
-          <h3>✅ Real-Time Signals</h3>
-          <p>Get actionable trade alerts on Telegram with lightning speed.</p>
-        </div>
-        <div class="card">
-          <h3>✅ Fully Automated</h3>
-          <p>Hands-free trading experience, coded and optimized for results.</p>
-        </div>
-        <div class="card">
-          <h3>✅ Direct Support</h3>
-          <p>WhatsApp support after payment for onboarding and guidance.</p>
-        </div>
-        <div class="card">
-          <h3>✅ Custom Strategy Bots</h3>
-          <p>We can develop bots tailored to your personal strategy or needs.</p>
-        </div>
-        <div class="card">
-          <h3>✅ Affordable Pricing</h3>
-          <p>High performance bots at budget-friendly prices for all markets.</p>
-        </div>
+        <div class="card"><h3>✅ Proven Performance</h3><p>Backtested bots across Indian, Crypto, Forex & Binary markets.</p></div>
+        <div class="card"><h3>✅ Real-Time Signals</h3><p>Get actionable trade alerts on Telegram with lightning speed.</p></div>
+        <div class="card"><h3>✅ Fully Automated</h3><p>Hands-free trading experience, coded and optimized for results.</p></div>
+        <div class="card"><h3>✅ Direct Support</h3><p>WhatsApp support after payment for onboarding and guidance.</p></div>
+        <div class="card"><h3>✅ Custom Strategy Bots</h3><p>We can develop bots tailored to your personal strategy or needs.</p></div>
+        <div class="card"><h3>✅ Affordable Pricing</h3><p>High performance bots at budget-friendly prices for all markets.</p></div>
       </div>
     </section>
 
@@ -179,10 +162,7 @@
 
     <div id="payment">
       <h3>Make Payment</h3>
-      <p>Pay via UPI: <strong>9960824574@upi</strong></p>
-      <div class="qr-code">
-        <img src="qr-code.png" alt="UPI QR Code" />
-      </div>
+      <div id="buyLinks"></div>
       <button class="btn" onclick="showWhatsApp()">I Have Paid</button>
     </div>
 
@@ -194,18 +174,9 @@
 
     <section class="faq">
       <h3>Company Information</h3>
-      <div class="faq-item">
-        <strong>Company Name:</strong>
-        <p>Ark Algo Labs Pvt. Ltd.</p>
-      </div>
-      <div class="faq-item">
-        <strong>Incorporation:</strong>
-        <p>Registered under Indian Companies Act, 2013</p>
-      </div>
-      <div class="faq-item">
-        <strong>Office:</strong>
-        <p>Mumbai, India</p>
-      </div>
+      <div class="faq-item"><strong>Company Name:</strong><p>Ark Algo Labs Pvt. Ltd.</p></div>
+      <div class="faq-item"><strong>Incorporation:</strong><p>Registered under Indian Companies Act, 2013</p></div>
+      <div class="faq-item"><strong>Office:</strong><p>Mumbai, India</p></div>
     </section>
 
     <footer>
@@ -220,6 +191,25 @@
         Binary: { Auto: 4000, Signal: 2000 },
       };
 
+      const links = {
+        Indian: {
+          Auto: 'https://payments.cashfree.com/links?code=J8l2oeh0dcdg',
+          Signal: 'https://payments.cashfree.com/links?code=A8l2omehjcdg',
+        },
+        Crypto: {
+          Auto: 'https://payments.cashfree.com/links?code=T8l2ot7jmje0',
+          Signal: 'https://payments.cashfree.com/links?code=H8l2pfop4je0',
+        },
+        Forex: {
+          Auto: 'https://payments.cashfree.com/links?code=m8l2pn0vtcdg',
+          Signal: 'https://payments.cashfree.com/links?code=n8l2pt1cmje0',
+        },
+        Binary: {
+          Auto: 'https://payments.cashfree.com/links?code=L8l2q26h1cdg',
+          Signal: 'https://payments.cashfree.com/links?code=E8l2q8g1ije0',
+        },
+      };
+
       function showSummary() {
         const market = document.getElementById("market").value;
         const botType = document.getElementById("botType").value;
@@ -231,8 +221,12 @@
           return;
         }
 
-        const price = prices[market][botType];
+        if (botType === 'Auto' && market === 'Binary') {
+          alert("Auto Trading is not available for Binary Market.");
+          return;
+        }
 
+        const price = prices[market][botType];
         details.innerHTML = `Market: <strong>${market}</strong><br>Bot Type: <strong>${
           botType === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
         }</strong><br>Price: ₹${price}`;
@@ -240,27 +234,32 @@
       }
 
       function showPayment() {
+        const market = document.getElementById("market").value;
+        const botType = document.getElementById("botType").value;
+        const buyLinks = document.getElementById("buyLinks");
+
+        const link = links[market][botType];
+        buyLinks.innerHTML = `<a href="${link}" target="_blank" class="btn">Pay ₹${prices[market][botType]} Now</a>`;
         document.getElementById("payment").style.display = "block";
       }
 
       function showWhatsApp() {
-  const market = document.getElementById("market").value;
-  const botType = document.getElementById("botType").value;
-  const price = prices[market][botType];
+        const market = document.getElementById("market").value;
+        const botType = document.getElementById("botType").value;
+        const price = prices[market][botType];
 
-  const message = encodeURIComponent(
-    `Hello, I have completed the payment.\n\nMy Details:\n- Market: ${market}\n- Bot Type: ${
-      botType === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
-    }\n- Price Paid: ₹${price}\n\nRequesting confirmation.`
-  );
+        const message = encodeURIComponent(
+          `Hello, I have completed the payment.\n\nMy Details:\n- Market: ${market}\n- Bot Type: ${
+            botType === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
+          }\n- Price Paid: ₹${price}\n\nRequesting confirmation.`
+        );
 
-const link = `https://wa.me/919960824574?text=${message}`;
-
-  const whatsappLink = document.getElementById("whatsappLink");
-  whatsappLink.href = link;
-  whatsappLink.style.display = "inline-block";
-  document.getElementById("whatsapp").style.display = "block";
-}
+        const link = `https://wa.me/919960824574?text=${message}`;
+        const whatsappLink = document.getElementById("whatsappLink");
+        whatsappLink.href = link;
+        whatsappLink.style.display = "inline-block";
+        document.getElementById("whatsapp").style.display = "block";
+      }
     </script>
   </body>
 </html>
