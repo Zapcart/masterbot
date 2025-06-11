@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ark Algo Labs offers trading bots, trading analysis, website building, app development, e-commerce, and gaming websites." />
     <title>Ark Algo Labs</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       * {
@@ -14,103 +15,167 @@
         box-sizing: border-box;
       }
       body {
-        font-family: 'Poppins', sans-serif;
-        background: #0e0e0e;
-        color: #ffffff;
-        line-height: 1.6;
+        font-family: 'Inter', 'Poppins', sans-serif;
+        background: #0a0f1c;
+        color: #e6e6e6;
+        line-height: 1.7;
       }
       header {
-        padding: 4rem 1rem 2rem;
+        padding: 5rem 1.5rem 3rem;
         text-align: center;
-        background: linear-gradient(to right, #00c6ff, #0072ff);
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 30px;
+        background: linear-gradient(135deg, #1e3a8a, #06b6d4);
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       }
       header img {
-        max-width: 150px;
-        margin-bottom: 1rem;
+        max-width: 160px;
+        margin-bottom: 1.5rem;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
       }
       header h1 {
-        font-size: 2.8rem;
-        color: #fff;
+        font-size: 3rem;
+        font-weight: 700;
+        color: #ffffff;
         margin-bottom: 1rem;
       }
       header p {
-        font-size: 1.2rem;
-        opacity: 0.9;
+        font-size: 1.3rem;
+        font-weight: 400;
+        opacity: 0.85;
       }
       section {
-        padding: 3rem 1rem;
-        max-width: 1000px;
+        padding: 4rem 1.5rem;
+        max-width: 1200px;
         margin: auto;
       }
       h2 {
         text-align: center;
-        color: #00ffaa;
-        font-size: 2rem;
-        margin-bottom: 2rem;
+        color: #22d3ee;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 3rem;
       }
       .features {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
       }
       .card {
-        background: #1e1e1e;
+        background: #111827;
         padding: 1.5rem;
-        border-radius: 16px;
-        box-shadow: 0 6px 20px rgba(0, 255, 204, 0.15);
-        transition: transform 0.3s, box-shadow 0.3s;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
       }
       .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 25px rgba(0, 255, 204, 0.25);
+        transform: translateY(-10px);
+        box-shadow: 0 12px 30px rgba(34, 211, 238, 0.2);
+      }
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+      }
+      .card h3 {
+        font-size: 1.5rem;
+        color: #22d3ee;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+      }
+      .card p {
+        font-size: 1rem;
+        color: #b0b0b0;
       }
       select, button {
-        padding: 0.8rem 1rem;
+        padding: 0.9rem 1.5rem;
         margin: 1rem 0.5rem;
         font-size: 1rem;
-        border-radius: 12px;
+        border-radius: 10px;
         border: none;
-        min-width: 220px;
+        min-width: 250px;
+        font-family: 'Inter', sans-serif;
+        transition: all 0.3s ease;
       }
       select {
-        background: #2c2c2c;
-        color: #fff;
+        background: #1f2937;
+        color: #e6e6e6;
+        appearance: none;
+        cursor: pointer;
+      }
+      select:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #22d3ee;
       }
       .btn {
-        background-color: #00cc88;
-        color: white;
+        background: #22d3ee;
+        color: #0a0f1c;
+        font-weight: 500;
         cursor: pointer;
-        transition: background-color 0.3s;
       }
       .btn:hover {
-        background-color: #009f6b;
+        background: #06b6d4;
+        transform: translateY(-2px);
       }
       #summary, #payment, #whatsapp {
         display: none;
-        margin-top: 2rem;
+        margin-top: 2.5rem;
         text-align: center;
       }
-      .faq {
-        background: #1a1a1a;
-        border-radius: 16px;
-        padding: 2rem;
-        margin-top: 3rem;
-      }
-      .faq h3 {
-        color: #00ffcc;
+      #summary h3, #payment h3 {
+        color: #22d3ee;
+        font-size: 1.8rem;
         margin-bottom: 1rem;
       }
-      .faq-item + .faq-item {
-        margin-top: 1rem;
+      #details {
+        font-size: 1.1rem;
+        color: #b0b0b0;
+      }
+      .faq {
+        background: #111827;
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin-top: 4rem;
+      }
+      .faq h3 {
+        color: #22d3ee;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+      .faq-item {
+        margin-bottom: 1.2rem;
+      }
+      .faq-item strong {
+        color: #e6e6e6;
       }
       footer {
         text-align: center;
-        padding: 1rem;
-        background: #111;
-        font-size: 0.9rem;
-        color: #aaa;
+        padding: 1.5rem;
+        background: #0a0f1c;
+        font-size: 0.95rem;
+        color: #6b7280;
+        border-top: 1px solid #1f2937;
+      }
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.2rem;
+        }
+        header p {
+          font-size: 1.1rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+        .card img {
+          height: 150px;
+        }
+        select, button {
+          min-width: 200px;
+        }
       }
     </style>
   </head>
@@ -118,37 +183,72 @@
     <header>
       <img src="ark-logo.png" alt="Ark Algo Labs Logo">
       <h1>Ark Algo Labs</h1>
-      <p>Automate Your Profits | 5+ Years Experience in Algo Trading</p>
+      <p>Empowering Wealth Creation & Digital Innovation</p>
     </header>
 
     <section>
-      <h2>Why Choose Our Bots?</h2>
+      <h2>Our Services</h2>
       <div class="features">
-        <div class="card"><h3>✅ Proven Performance</h3><p>Backtested bots across Indian, Crypto, Forex & Binary markets.</p></div>
-        <div class="card"><h3>✅ Real-Time Signals</h3><p>Get actionable trade alerts on Telegram with lightning speed.</p></div>
-        <div class="card"><h3>✅ Fully Automated</h3><p>Hands-free trading experience, coded and optimized for results.</p></div>
-        <div class="card"><h3>✅ Direct Support</h3><p>WhatsApp support after payment for onboarding and guidance.</p></div>
-        <div class="card"><h3>✅ Custom Strategy Bots</h3><p>We can develop bots tailored to your personal strategy or needs.</p></div>
-        <div class="card"><h3>✅ Affordable Pricing</h3><p>High performance bots at budget-friendly prices for all markets.</p></div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485" alt="Trading Bots">
+          <h3>Trading Bots</h3>
+          <p>Automated trading and signal bots for Indian, Crypto, Forex, and Binary markets.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a669ca6" alt="Trading Analysis">
+          <h3>Trading Analysis</h3>
+          <p>Advanced market insights and analytics for smarter trading decisions.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Website Building">
+          <h3>Website Building</h3>
+          <p>Custom-designed websites tailored to elevate your business.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c" alt="App Building">
+          <h3>App Building</h3>
+          <p>High-performance mobile apps for iOS and Android platforms.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1556742524-750f2ab71513" alt="E-commerce Website">
+          <h3>E-commerce Website</h3>
+          <p>Scalable online stores with secure payment gateways.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766" alt="Gaming Website">
+          <h3>Gaming Website</h3>
+          <p>Engaging gaming platforms with immersive user experiences.</p>
+        </div>
       </div>
     </section>
 
     <section>
-      <h2>Get Your Bot</h2>
-      <label for="market">Select Market:</label><br />
-      <select id="market">
+      <h2>Get Started</h2>
+      <label for="service">Select Service:</label><br />
+      <select id="service">
+        <option value="">--Select--</option>
+        <option value="TradingBot">Trading Bot</option>
+        <option value="TradingAnalysis">Trading Analysis</option>
+        <option value="WebsiteBuilding">Website Building</option>
+        <option value="AppBuilding">App Building</option>
+        <option value="EcommerceWebsite">E-commerce Website</option>
+        <option value="GamingWebsite">Gaming Website</option>
+      </select><br />
+
+      <label for="subService" id="subServiceLabel" style="display: none;">Select Bot Type:</label><br />
+      <select id="subService" style="display: none;">
+        <option value="">--Select--</option>
+        <option value="Auto">Auto-Trading Bot</option>
+        <option value="Signal">Telegram Signal Bot</option>
+      </select><br />
+
+      <label for="market" id="marketLabel" style="display: none;">Select Market:</label><br />
+      <select id="market" style="display: none;">
         <option value="">--Select--</option>
         <option value="Indian">Indian Market</option>
         <option value="Crypto">Crypto Market</option>
         <option value="Forex">Forex Market</option>
         <option value="Binary">Binary Market</option>
-      </select><br />
-
-      <label for="botType">Select Bot Type:</label><br />
-      <select id="botType">
-        <option value="">--Select--</option>
-        <option value="Auto">Auto-Trading Bot</option>
-        <option value="Signal">Telegram Signal Bot</option>
       </select><br />
 
       <button class="btn" onclick="showSummary()">Show Price</button>
@@ -157,7 +257,7 @@
     <div id="summary">
       <h3>Summary</h3>
       <p id="details"></p>
-      <button class="btn" onclick="showPayment()">I Want This Bot</button>
+      <button class="btn" onclick="showPayment()">I Want This Service</button>
     </div>
 
     <div id="payment">
@@ -180,79 +280,145 @@
     </section>
 
     <footer>
-      &copy; 2025 Ark Algo Labs Pvt. Ltd. | All rights reserved
+      © 2025 Ark Algo Labs Pvt. Ltd. | All Rights Reserved
     </footer>
 
     <script>
       const prices = {
-        Indian: { Auto: 4000, Signal: 2000 },
-        Crypto: { Auto: 4000, Signal: 2000 },
-        Forex: { Auto: 4000, Signal: 2000 },
-        Binary: { Auto: 4000, Signal: 2000 },
+        TradingBot: {
+          Indian: { Auto: 4000, Signal: 2000 },
+          Crypto: { Auto: 4000, Signal: 2000 },
+          Forex: { Auto: 4000, Signal: 2000 },
+          Binary: { Auto: null, Signal: 2000 },
+        },
+        TradingAnalysis: 5000,
+        WebsiteBuilding: 10000,
+        AppBuilding: 15000,
+        EcommerceWebsite: 12000,
+        GamingWebsite: 18000,
       };
 
       const links = {
-        Indian: {
-          Auto: 'https://payments.cashfree.com/links?code=J8l2oeh0dcdg',
-          Signal: 'https://payments.cashfree.com/links?code=A8l2omehjcdg',
+        TradingBot: {
+          Indian: {
+            Auto: 'https://payments.cashfree.com/links?code=J8l2oeh0dcdg',
+            Signal: 'https://payments.cashfree.com/links?code=A8l2omehjcdg',
+          },
+          Crypto: {
+            Auto: 'https://payments.cashfree.com/links?code=T8l2ot7jmje0',
+            Signal: 'https://payments.cashfree.com/links?code=H8l2pfop4je0',
+          },
+          Forex: {
+            Auto: 'https://payments.cashfree.com/links?code=m8l2pn0vtcdg',
+            Signal: 'https://payments.cashfree.com/links?code=n8l2pt1cmje0',
+          },
+          Binary: {
+            Auto: null,
+            Signal: 'https://payments.cashfree.com/links?code=E8l2q8g1ije0',
+          },
         },
-        Crypto: {
-          Auto: 'https://payments.cashfree.com/links?code=T8l2ot7jmje0',
-          Signal: 'https://payments.cashfree.com/links?code=H8l2pfop4je0',
-        },
-        Forex: {
-          Auto: 'https://payments.cashfree.com/links?code=m8l2pn0vtcdg',
-          Signal: 'https://payments.cashfree.com/links?code=n8l2pt1cmje0',
-        },
-        Binary: {
-          Auto: 'https://payments.cashfree.com/links?code=L8l2q26h1cdg',
-          Signal: 'https://payments.cashfree.com/links?code=E8l2q8g1ije0',
-        },
+        TradingAnalysis: 'https://payments.cashfree.com/links?code=TRADING_ANALYSIS_LINK',
+        WebsiteBuilding: 'https://payments.cashfree.com/links?code=WEBSITE_BUILDING_LINK',
+        AppBuilding: 'https://payments.cashfree.com/links?code=APP_BUILDING_LINK',
+        EcommerceWebsite: 'https://payments.cashfree.com/links?code=ECOMMERCE_WEBSITE_LINK',
+        GamingWebsite: 'https://payments.cashfree.com/links?code=GAMING_WEBSITE_LINK',
       };
 
+      function updateDropdowns() {
+        const service = document.getElementById("service").value;
+        const subServiceSelect = document.getElementById("subService");
+        const subServiceLabel = document.getElementById("subServiceLabel");
+        const marketSelect = document.getElementById("market");
+        const marketLabel = document.getElementById("marketLabel");
+
+        subServiceSelect.style.display = "none";
+        subServiceLabel.style.display = "none";
+        marketSelect.style.display = "none";
+        marketLabel.style.display = "none";
+        subServiceSelect.value = "";
+        marketSelect.value = "";
+
+        if (service === "TradingBot") {
+          subServiceSelect.style.display = "block";
+          subServiceLabel.style.display = "block";
+        }
+      }
+
       function showSummary() {
+        const service = document.getElementById("service").value;
+        const subService = document.getElementById("subService").value;
         const market = document.getElementById("market").value;
-        const botType = document.getElementById("botType").value;
         const summary = document.getElementById("summary");
         const details = document.getElementById("details");
 
-        if (!market || !botType) {
-          alert("Please select both market and bot type.");
+        if (!service) {
+          alert("Please select a service.");
           return;
         }
 
-        if (botType === 'Auto' && market === 'Binary') {
-          alert("Auto Trading is not available for Binary Market.");
-          return;
+        if (service === "TradingBot") {
+          if (!subService) {
+            alert("Please select a bot type.");
+            return;
+          }
+          if (!market) {
+            alert("Please select a market.");
+            return;
+          }
+          if (subService === "Auto" && market === "Binary") {
+            alert("Auto Trading is not available for Binary Market.");
+            return;
+          }
+          const price = prices[service][market][subService];
+          details.innerHTML = `Service: <strong>Trading Bot</strong><br>Market: <strong>${market}</strong><br>Bot Type: <strong>${
+            subService === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
+          }</strong><br>Price: ₹${price}`;
+        } else {
+          const price = prices[service];
+          details.innerHTML = `Service: <strong>${service.replace(/([A-Z])/g, ' $1').trim()}</strong><br>Price: ₹${price}`;
         }
 
-        const price = prices[market][botType];
-        details.innerHTML = `Market: <strong>${market}</strong><br>Bot Type: <strong>${
-          botType === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
-        }</strong><br>Price: ₹${price}`;
         summary.style.display = "block";
       }
 
       function showPayment() {
+        const service = document.getElementById("service").value;
+        const subService = document.getElementById("subService").value;
         const market = document.getElementById("market").value;
-        const botType = document.getElementById("botType").value;
         const buyLinks = document.getElementById("buyLinks");
 
-        const link = links[market][botType];
-        buyLinks.innerHTML = `<a href="${link}" target="_blank" class="btn">Pay ₹${prices[market][botType]} Now</a>`;
+        let link, price;
+        if (service === "TradingBot") {
+          link = links[service][market][subService];
+          price = prices[service][market][subService];
+        } else {
+          link = links[service];
+          price = prices[service];
+        }
+
+        buyLinks.innerHTML = `<a href="${link}" target="_blank" class="btn">Pay ₹${price} Now</a>`;
         document.getElementById("payment").style.display = "block";
       }
 
       function showWhatsApp() {
+        const service = document.getElementById("service").value;
+        const subService = document.getElementById("subService").value;
         const market = document.getElementById("market").value;
-        const botType = document.getElementById("botType").value;
-        const price = prices[market][botType];
+        let message;
 
-        const message = encodeURIComponent(
-          `Hello, I have completed the payment.\n\nMy Details:\n- Market: ${market}\n- Bot Type: ${
-            botType === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
-          }\n- Price Paid: ₹${price}\n\nRequesting confirmation.`
-        );
+        if (service === "TradingBot") {
+          const price = prices[service][market][subService];
+          message = encodeURIComponent(
+            `Hello, I have completed the payment.\n\nMy Details:\n- Service: Trading Bot\n- Market: ${market}\n- Bot Type: ${
+              subService === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
+            }\n- Price Paid: ₹${price}\n\nRequesting confirmation.`
+          );
+        } else {
+          const price = prices[service];
+          message = encodeURIComponent(
+            `Hello, I have completed the payment.\n\nMy Details:\n- Service: ${service.replace(/([A-Z])/g, ' $1').trim()}\n- Price Paid: ₹${price}\n\nRequesting confirmation.`
+          );
+        }
 
         const link = `https://wa.me/919960824574?text=${message}`;
         const whatsappLink = document.getElementById("whatsappLink");
@@ -260,6 +426,23 @@
         whatsappLink.style.display = "inline-block";
         document.getElementById("whatsapp").style.display = "block";
       }
+
+      document.getElementById("service").addEventListener("change", function () {
+        updateDropdowns();
+      });
+
+      document.getElementById("subService").addEventListener("change", function () {
+        const subService = this.value;
+        const marketSelect = document.getElementById("market");
+        const marketLabel = document.getElementById("marketLabel");
+        if (subService) {
+          marketSelect.style.display = "block";
+          marketLabel.style.display = "block";
+        } else {
+          marketSelect.style.display = "none";
+          marketLabel.style.display = "none";
+        }
+      });
     </script>
   </body>
 </html>
