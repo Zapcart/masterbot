@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Ark Algo Labs offers trading bots, trading analysis, website building, app development, e-commerce, gaming websites, and more." />
+    <meta name="keywords" content="trading bots, trading analysis, website development, app development, e-commerce, gaming websites, Ark Algo Labs" />
+    <meta property="og:title" content="Ark Algo Labs - Wealth Creation & Digital Innovation" />
+    <meta property="og:description" content="Explore trading bots, website building, app development, and more with Ark Algo Labs." />
+    <meta property="og:image" content="https://your-domain.com/images/og-image.jpg" />
+    <meta property="og:url" content="https://your-domain.com" />
     <title>Ark Algo Labs</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -19,6 +24,7 @@
         background: #0a0f1c;
         color: #e6e6e6;
         line-height: 1.7;
+        margin-left: 160px;
         opacity: 0;
         transition: opacity 0.5s ease;
       }
@@ -29,14 +35,14 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 0%;
+        height: calc(100% - 30%);
         background: #0a0f1c;
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 1000;
-        transition: opacity 0.5s ease;
+        transition: opacity 0.3s ease;
       }
       .loader.hidden {
         opacity: 0;
@@ -48,46 +54,79 @@
         border: 4px solid #22d3ee;
         border-top: 4px solid transparent;
         border-radius: 50%;
-        animation: spin 1s linear infinite;
+        animation: spin 0.3s linear infinite;
       }
       @keyframes spin {
         0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
       }
-      nav {
-        position: sticky;
+      .sidebar {
+        position: fixed;
         top: 0;
+        left: 0;
+        width: calc(160px);
+        height: calc(100% - 30%);
         background: #111827;
-        padding: 1rem 2rem;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        padding: 2rem;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.0,0.3);
         z-index: 100;
+        transition: transform 0s ease;
       }
-      nav ul {
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      .sidebar .logo {
+        display: none;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .sidebar img {
+        width: 100px;
+      }
+      .sidebar ul {
         list-style: none;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
       }
-      nav a {
+      .sidebar li {
+        margin: flex;
+      }
+      .sidebar a {
+        display: block;
+        color: block;
+        margin-bottom: 1.5rem;
         color: #e6e6e6;
         text-decoration: none;
+        font-weight: none;
         font-weight: 500;
-        transition: color 0.3s;
+        padding: 0.5rem;
+        border-radius: 0;
+        transition: all 0.3s;
       }
-      nav a:hover {
-        color: #22d3ee;
+      .sidebar a:hover {
+        background: linear-gradient(145deg, #1e3a8a, #06b6d4);
+        color: #ffffff;
+      }
+      .hamburger {
+        display: none;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        font-size: 1.5rem;
+        color: #e6e6;
+        cursor: pointer;
+        z-index: 101;
       }
       header {
-        padding: 5rem 1.5rem 3rem;
+        padding: 20px;
         text-align: center;
         background: linear-gradient(135deg, #1e3a8a, #06b6d4);
-        border-bottom-left-radius: 40px;
-        border-bottom-right-radius: 40px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        border-radius: 40px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0,0);
+        margin-bottom: 2rem;
       }
       header img {
-        max-width: 160px;
-        margin-bottom: 1.5rem;
+        width: 160px;
+        margin-bottom: max-width;
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
       }
       header h1 {
@@ -205,14 +244,14 @@
         font-size: 1.1rem;
         color: #b0b0b0;
       }
-      .faq, .contact, .security, .cta-banner {
+      .faq, .contact, .security, .cta-banner, .newsletter {
         background: #111827;
         border-radius: 20px;
         padding: 2.5rem;
         margin-top: 4rem;
         text-align: center;
       }
-      .faq h3, .contact h3, .security h3, .cta-banner h3 {
+      .faq h3, .contact h3, .security h3, .cta-banner h3, .newsletter h3 {
         color: #22d3ee;
         font-size: 1.8rem;
         margin-bottom: 1.5rem;
@@ -235,11 +274,18 @@
       .faq-item.active p {
         display: block;
       }
-      .contact form {
+      .contact form, .newsletter form {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
+      }
+      .newsletter form {
+        flex-direction: row;
+        justify-content: center;
+      }
+      .newsletter input {
+        max-width: 300px;
       }
       .trust-badges .card {
         text-align: center;
@@ -254,13 +300,11 @@
         width: 100%;
         height: 100px;
         object-fit: contain;
-        filter: grayscale(100%);
-        opacity: 0.7;
+        filter: grayscale(0%);
+        opacity: 1;
         transition: all 0.3s;
       }
       .client-logos img:hover {
-        filter: grayscale(0);
-        opacity: 1;
         transform: scale(1.1);
       }
       .security i {
@@ -276,7 +320,24 @@
         color: #e6e6e6;
         margin-bottom: 1.5rem;
       }
-      .live-chat {
+      .portfolio-filters {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .portfolio-filters button {
+        background: #1f2937;
+        color: #e6e6e6;
+        padding: 0.5rem 1rem;
+        margin: 0 0.3rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .portfolio-filters button.active, .portfolio-filters button:hover {
+        background: #22d3ee;
+        color: #0a0f1c;
+      }
+      .live-chat, .back-to-top {
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -285,12 +346,21 @@
         padding: 1rem;
         border-radius: 50%;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s;
+        transition: transform 0.3s, opacity 0.3s;
       }
-      .live-chat:hover {
+      .back-to-top {
+        bottom: 80px;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .back-to-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .live-chat:hover, .back-to-top:hover {
         transform: scale(1.1);
       }
-      .live-chat i {
+      .live-chat i, .back-to-top i {
         font-size: 1.8rem;
       }
       footer {
@@ -300,15 +370,35 @@
         font-size: 0.95rem;
         color: #6b7280;
         border-top: 1px solid #1f2937;
+        margin-left: -160px;
       }
       footer .social a {
         color: #22d3ee;
         margin: 0 0.5rem;
         font-size: 1.5rem;
         transition: color 0.3s;
+        position: relative;
       }
       footer .social a:hover {
         color: #06b6d4;
+      }
+      footer .social a::after {
+        content: attr(title);
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1f2937;
+        color: #e6e6e6;
+        padding: 0.3rem 0.6rem;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+      }
+      footer .social a:hover::after {
+        opacity: 1;
       }
       footer .links a {
         color: #e6e6e6;
@@ -323,13 +413,23 @@
         to { opacity: 1; }
       }
       @media (max-width: 768px) {
+        body { margin-left: 0; }
+        .sidebar {
+          transform: translateX(-100%);
+          width: 200px;
+        }
+        .sidebar.active { transform: translateX(0); }
+        .hamburger { display: block; }
         header h1 { font-size: 2.2rem; }
         header p { font-size: 1.1rem; }
         h2 { font-size: 2rem; }
         .card img { height: 150px; }
         select, input, textarea, button { max-width: 100%; }
-        .live-chat { bottom: 15px; right: 15px; }
-        nav ul { flex-direction: column; gap: 1rem; }
+        .live-chat, .back-to-top { bottom: 15px; right: 15px; }
+        .back-to-top { bottom: 70px; }
+        .newsletter form { flex-direction: column; }
+        .portfolio-filters button { margin: 0.2rem; }
+        footer { margin-left: 0; }
       }
     </style>
   </head>
@@ -337,7 +437,11 @@
     <div class="loader">
       <div class="spinner"></div>
     </div>
-    <nav>
+    <div class="hamburger" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></div>
+    <nav class="sidebar">
+      <div class="logo">
+        <img src="ark-logo.png" alt="Ark Algo Labs Logo" loading="lazy">
+      </div>
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#services">Services</a></li>
@@ -347,7 +451,7 @@
       </ul>
     </nav>
     <header id="home">
-      <img src="ark-logo.png" alt="Ark Algo Labs Logo">
+      <img src="ark-logo.png" alt="Ark Algo Labs Logo" loading="lazy">
       <h1>Ark Algo Labs</h1>
       <p>Empowering Wealth Creation & Digital Innovation</p>
     </header>
@@ -356,32 +460,32 @@
       <h2>Our Services</h2>
       <div class="features">
         <div class="card" style="--index: 1;">
-          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485" alt="Trading Bots">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485" alt="Trading Bots" loading="lazy">
           <h3><i class="fa-solid fa-robot"></i> Trading Bots</h3>
           <p>Automated trading and signal bots for Indian, Crypto, Forex, and Binary markets.</p>
         </div>
         <div class="card" style="--index: 2;">
-          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a669ca6" alt="Trading Analysis">
+          <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f" alt="Trading Analysis" loading="lazy">
           <h3><i class="fa-solid fa-chart-line"></i> Trading Analysis</h3>
           <p>Advanced market insights and analytics for informed trading decisions.</p>
         </div>
         <div class="card" style="--index: 3;">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Website Building">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Website Building" loading="lazy">
           <h3><i class="fa-solid fa-code"></i> Website Building</h3>
           <p>Custom-designed websites to elevate your business online.</p>
         </div>
         <div class="card" style="--index: 4;">
-          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c" alt="App Building">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c" alt="App Building" loading="lazy">
           <h3><i class="fa-solid fa-mobile-alt"></i> App Building</h3>
           <p>High-performance mobile applications for iOS and Android.</p>
         </div>
         <div class="card" style="--index: 5;">
-          <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028" alt="E-commerce Website">
+          <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028" alt="E-commerce Website" loading="lazy">
           <h3><i class="fa-solid fa-shopping-cart"></i> E-commerce Website</h3>
           <p>Scalable online stores with secure payment gateways.</p>
         </div>
         <div class="card" style="--index: 6;">
-          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766" alt="Gaming Website">
+          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766" alt="Gaming Website" loading="lazy">
           <h3><i class="fa-solid fa-gamepad"></i> Gaming Website</h3>
           <p>Engaging gaming platforms with immersive user experiences.</p>
         </div>
@@ -391,24 +495,30 @@
     <section class="cta-banner">
       <h3>Ready to Transform Your Business?</h3>
       <p>Explore our services and start your journey with Ark Algo Labs today!</p>
-      <a href="#get-started" class="btn">Get Started Now</a>
+      <a href="#get-started" class="btn" aria-label="Get Started">Get Started Now</a>
     </section>
 
     <section id="portfolio">
       <h2>Our Work</h2>
+      <div class="portfolio-filters">
+        <button class="btn filter active" data-filter="All">All</button>
+        <button class="btn filter" data-filter="Trading">Trading</button>
+        <button class="btn filter" data-filter="Websites">Websites</button>
+        <button class="btn filter" data-filter="Apps">Apps</button>
+      </div>
       <div class="portfolio">
-        <div class="card" style="--index: 1;">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="Crypto Trading Bot">
+        <div class="card" data-category="Trading" style="--index: 1;">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="Crypto Trading Bot" loading="lazy">
           <h3>Crypto Trading Bot</h3>
           <p>A fully automated bot delivering consistent profits in the crypto market.</p>
         </div>
-        <div class="card" style="--index: 2;">
-          <img src="https://images.unsplash.com/photo-14973662105479-ffa5bc916735" alt="E-commerce Store">
+        <div class="card" data-category="Websites" style="--index: 2;">
+          <img src="https://images.unsplash.com/photo-1560617544-efc3db8a1025" alt="E-commerce Store" loading="lazy">
           <h3>E-commerce Store</h3>
           <p>A scalable online store with fast checkout and payment integration.</p>
         </div>
-        <div class="card" style="--index: 3;">
-          <img src="https://images.unsplash.com/photo-1547658719-1f5dd0b3d8c6" alt="Gaming Platform">
+        <div class="card" data-category="Websites" style="--index: 3;">
+          <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620" alt="Gaming Platform" loading="lazy">
           <h3>Gaming Platform</h3>
           <p>An interactive gaming website keeping users engaged.</p>
         </div>
@@ -439,9 +549,9 @@
     <section id="client-logos">
       <h2>Trusted By</h2>
       <div class="client-logos">
-        <img src="https://images.unsplash.com/photo-1521747116042-5a81077343ef" alt="Client 1">
-        <img src="https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5" alt="Client 2">
-        <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094" alt="Client 3">
+        <img src="https://logo.clearbit.com/amazon.com" alt="Amazon Logo" loading="lazy">
+        <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft Logo" loading="lazy">
+        <img src="https://logo.clearbit.com/shopify.com" alt="Shopify Logo" loading="lazy">
       </div>
     </section>
 
@@ -474,23 +584,23 @@
         <option value="Binary">Binary Market</option>
       </select><br />
 
-      <button class="btn" onclick="showSummary()">View Price</button>
+      <button class="btn" onclick="showSummary()" aria-label="View Price">View Price</button>
     </section>
 
     <div id="summary">
       <h3>Summary</h3>
       <p id="details"></p>
-      <button class="btn" onclick="showPayment()">Proceed with Service</button>
+      <button class="btn" onclick="showPayment()" aria-label="Proceed with Service">Proceed with Service</button>
     </div>
 
     <div id="payment">
       <h3>Make Payment</h3>
       <div id="buyLinks"></div>
-      <button class="btn" onclick="showWhatsApp()">I Have Paid</button>
+      <button class="btn" onclick="showWhatsApp()" aria-label="Confirm Payment">I Have Paid</button>
     </div>
 
     <div id="whatsapp">
-      <a id="whatsappLink" class="btn" target="_blank">
+       <a id="whatsappLink" class="btn" target="_blank" aria-label="Contact via WhatsApp">
         <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Contact via WhatsApp
       </a>
     </div>
@@ -498,10 +608,10 @@
     <section id="contact" class="contact">
       <h2>Contact Us</h2>
       <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Message" required></textarea>
-        <button type="submit" class="btn">Send</button>
+        <input type="text" placeholder="Name" required aria-label="Name">
+        <input type="email" placeholder="Email" required aria-label="Email">
+        <textarea placeholder="Message" required aria-label="Message"></textarea>
+        <button type="submit" class="btn" aria-label="Send Message">Send</button>
       </form>
     </section>
 
@@ -548,23 +658,44 @@
       </div>
     </section>
 
-    <a href="https://wa.me/919960824574?text=Hello%2C%20I%20need%20assistance%20with%20Ark%20Algo%20Labs%20services!" class="live-chat" target="_blank" title="Chat with Us">
+    <section class="newsletter">
+      <h3>Stay Updated</h3>
+      <p>Subscribe to our newsletter for the latest updates and offers.</p>
+      <form>
+        <input type="email" placeholder="Enter your email" required aria-label="Email for Newsletter">
+        <button type="submit" class="btn" aria-label="Subscribe">Subscribe</button>
+      </form>
+    </section>
+
+    <a href="https://wa.me/919960824574?text=Hello%2C%20I%20need%20assistance%20with%20Ark%20Algo%20Labs%20services!" class="live-chat" target="_blank" title="Chat with Us" aria-label="Chat with Us">
       <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="#home" class="back-to-top" aria-label="Back to Top">
+      <i class="fa-solid fa-arrow-up"></i>
     </a>
 
     <footer>
       <div class="social">
-        <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-        <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank" title="Twitter" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/ehsan-shaikh-0760b9334?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/ahsanshaikh990?igsh=MWxrMnZqd2Ixa3B0MQ==" target="_blank" title="Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
       </div>
       <div class="links">
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </div>
-      <p>© 2025 Ark Algo Labs Pvt. Ltd. | All Rights Reserved</p>
+      <p>© <span id="year"></span> Ark Algo Labs Pvt. Ltd. | All Rights Reserved</p>
     </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'YOUR-GA-ID');
+    </script>
 
     <script>
       // Loader
@@ -573,12 +704,78 @@
         document.body.classList.add('loaded');
       });
 
+      // Dynamic Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Hamburger Menu
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('.sidebar');
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+      });
+
+      // Smooth Scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+          if (sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+          }
+        });
+      });
+
       // FAQ Toggle
       document.querySelectorAll('.faq-item').forEach(item => {
         item.addEventListener('click', () => {
           item.classList.toggle('active');
         });
       });
+
+      // Portfolio Filtering
+      const filterButtons = document.querySelectorAll('.portfolio-filters button');
+      const portfolioCards = document.querySelectorAll('.portfolio .card');
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          const filter = button.getAttribute('data-filter');
+          portfolioCards.forEach(card => {
+            if (filter === 'All' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Back to Top
+      const backToTop = document.querySelector('.back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+
+      const prices = {
+        TradingBot: {
+          Indian: { Auto: 4000, Signal: 2000 },
+          Crypto: { Auto: 4000, Signal: 2000 },
+          Forex: { Auto: 4000, Signal: 2000 },
+          Binary: { Auto: null, Signal: 2000 },
+        },
+        TradingAnalysis: 5000,
+        WebsiteBuilding: 10000,
+        AppBuilding: 15000,
+        EcommerceWebsite: 12000,
+        GamingWebsite: 3000,
+      };
+
       const links = {
         TradingBot: {
           Indian: {
@@ -587,7 +784,7 @@
           },
           Crypto: {
             Auto: 'https://payments.cashfree.com/links?code=T8l2ot7jmje0',
-            Signal: 'https://payments.cashfree.com/links?code=H8mo7pfop4je0',
+            Signal: 'https://payments.cashfree.com/links?code=H8l2pfop4je0',
           },
           Forex: {
             Auto: 'https://payments.cashfree.com/links?code=m8l2pn0vtcdg',
@@ -604,7 +801,6 @@
         EcommerceWebsite: 'https://payments.cashfree.com/links?code=r8mo7i4jnnr0',
         GamingWebsite: 'https://payments.cashfree.com/links?code=i8mo7ktm9nr0',
       };
-
       function updateDropdowns() {
         const service = document.getElementById("service").value;
         const subServiceSelect = document.getElementById("subService");
@@ -661,6 +857,7 @@
 
         summary.style.display = "block";
       }
+
       function showPayment() {
         const service = document.getElementById("service").value;
         const subService = document.getElementById("subService").value;
@@ -676,7 +873,12 @@
           price = prices[service];
         }
 
-        buyLinks.innerHTML = `<a href="${link}" target="_blank" class="btn">Pay ₹${price} Now</a>`;
+        if (!link) {
+          alert("Payment link is unavailable for this service. Please contact support.");
+          return;
+        }
+
+        buyLinks.innerHTML = `<a href="${link}" target="_blank" class="btn" aria-label="Pay Now">Pay ₹${price} Now</a>`;
         document.getElementById("payment").style.display = "block";
       }
 
@@ -699,6 +901,7 @@
             `Hello, I have completed the payment.\n\nDetails:\n- Service: ${service.replace(/([A-Z])/g, ' $1').trim()}\n- Price Paid: ₹${price}\n\nPlease confirm my payment.`
           );
         }
+
         const link = `https://wa.me/919960824574?text=${message}`;
         const whatsappLink = document.getElementById("whatsappLink");
         whatsappLink.href = link;
@@ -725,4 +928,4 @@
     </script>
   </body>
 </html>
-      
+   
