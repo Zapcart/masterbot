@@ -24,7 +24,6 @@
         background: #0a0f1c;
         color: #e6e6e6;
         line-height: 1.7;
-        margin-left: 160px;
         opacity: 0;
         transition: opacity 0.5s ease;
       }
@@ -35,14 +34,14 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 0%;
-        height: calc(100% - 30%);
+        width: 100%;
+        height: 100%;
         background: #0a0f1c;
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 1000;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.5s ease;
       }
       .loader.hidden {
         opacity: 0;
@@ -54,79 +53,69 @@
         border: 4px solid #22d3ee;
         border-top: 4px solid transparent;
         border-radius: 50%;
-        animation: spin 0.3s linear infinite;
+        animation: spin 1s linear infinite;
       }
       @keyframes spin {
         0% { transform: rotate(0deg); }
-      to {
-        transform: rotate(360deg);
+        100% { transform: rotate(360deg); }
       }
-      .sidebar {
-        position: fixed;
+      nav {
+        position: sticky;
         top: 0;
-        left: 0;
-        width: calc(160px);
-        height: calc(100% - 30%);
         background: #111827;
-        padding: 2rem;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.0,0.3);
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         z-index: 100;
-        transition: transform 0s ease;
       }
-      .sidebar.active {
-        transform: translateX(0);
+      nav .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
       }
-      .sidebar .logo {
-        display: none;
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-      .sidebar img {
-        width: 100px;
-      }
-      .sidebar ul {
+      nav ul {
         list-style: none;
+        display: flex;
+        gap: 2rem;
       }
-      .sidebar li {
-        margin: flex;
-      }
-      .sidebar a {
-        display: block;
-        color: block;
-        margin-bottom: 1.5rem;
+      nav a {
         color: #e6e6e6;
         text-decoration: none;
-        font-weight: none;
         font-weight: 500;
-        padding: 0.5rem;
-        border-radius: 0;
-        transition: all 0.3s;
+        transition: color 0.3s;
       }
-      .sidebar a:hover {
-        background: linear-gradient(145deg, #1e3a8a, #06b6d4);
-        color: #ffffff;
+      nav a:hover {
+        color: #22d3ee;
       }
       .hamburger {
         display: none;
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        font-size: 1.5rem;
-        color: #e6e6;
+        font-size: 1.8rem;
         cursor: pointer;
-        z-index: 101;
+        color: #e6e6e6;
+      }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #111827;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       }
       header {
-        padding: 20px;
+        padding: 5rem 1.5rem 3rem;
         text-align: center;
         background: linear-gradient(135deg, #1e3a8a, #06b6d4);
-        border-radius: 40px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0,0);
-        margin-bottom: 2rem;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       }
       header img {
-        width: 160px;
-        margin-bottom: max-width;
+        max-width: 160px;
+        margin-bottom: 1.5rem;
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
       }
       header h1 {
@@ -300,11 +289,13 @@
         width: 100%;
         height: 100px;
         object-fit: contain;
-        filter: grayscale(0%);
-        opacity: 1;
+        filter: grayscale(100%);
+        opacity: 0.7;
         transition: all 0.3s;
       }
       .client-logos img:hover {
+        filter: grayscale(0);
+        opacity: 1;
         transform: scale(1.1);
       }
       .security i {
@@ -328,7 +319,7 @@
         background: #1f2937;
         color: #e6e6e6;
         padding: 0.5rem 1rem;
-        margin: 0 0.3rem;
+        margin: 0 0.5rem;
         border-radius: 5px;
         cursor: pointer;
         transition: background 0.3s;
@@ -370,35 +361,15 @@
         font-size: 0.95rem;
         color: #6b7280;
         border-top: 1px solid #1f2937;
-        margin-left: -160px;
       }
       footer .social a {
         color: #22d3ee;
         margin: 0 0.5rem;
         font-size: 1.5rem;
         transition: color 0.3s;
-        position: relative;
       }
       footer .social a:hover {
         color: #06b6d4;
-      }
-      footer .social a::after {
-        content: attr(title);
-        position: absolute;
-        top: -30px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #1f2937;
-        color: #e6e6e6;
-        padding: 0.3rem 0.6rem;
-        border-radius: 5px;
-        font-size: 0.8rem;
-        opacity: 0;
-        transition: opacity 0.3s;
-        pointer-events: none;
-      }
-      footer .social a:hover::after {
-        opacity: 1;
       }
       footer .links a {
         color: #e6e6e6;
@@ -413,13 +384,6 @@
         to { opacity: 1; }
       }
       @media (max-width: 768px) {
-        body { margin-left: 0; }
-        .sidebar {
-          transform: translateX(-100%);
-          width: 200px;
-        }
-        .sidebar.active { transform: translateX(0); }
-        .hamburger { display: block; }
         header h1 { font-size: 2.2rem; }
         header p { font-size: 1.1rem; }
         h2 { font-size: 2rem; }
@@ -427,9 +391,10 @@
         select, input, textarea, button { max-width: 100%; }
         .live-chat, .back-to-top { bottom: 15px; right: 15px; }
         .back-to-top { bottom: 70px; }
+        .hamburger { display: block; }
+        nav ul { display: none; }
+        .nav-links.active { display: flex; }
         .newsletter form { flex-direction: column; }
-        .portfolio-filters button { margin: 0.2rem; }
-        footer { margin-left: 0; }
       }
     </style>
   </head>
@@ -437,18 +402,17 @@
     <div class="loader">
       <div class="spinner"></div>
     </div>
-    <div class="hamburger" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></div>
-    <nav class="sidebar">
-      <div class="logo">
-        <img src="ark-logo.png" alt="Ark Algo Labs Logo" loading="lazy">
+    <nav>
+      <div class="nav-container">
+        <div class="hamburger" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
     </nav>
     <header id="home">
       <img src="ark-logo.png" alt="Ark Algo Labs Logo" loading="lazy">
@@ -465,7 +429,7 @@
           <p>Automated trading and signal bots for Indian, Crypto, Forex, and Binary markets.</p>
         </div>
         <div class="card" style="--index: 2;">
-          <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f" alt="Trading Analysis" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a669ca6" alt="Trading Analysis" loading="lazy">
           <h3><i class="fa-solid fa-chart-line"></i> Trading Analysis</h3>
           <p>Advanced market insights and analytics for informed trading decisions.</p>
         </div>
@@ -476,8 +440,8 @@
         </div>
         <div class="card" style="--index: 4;">
           <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c" alt="App Building" loading="lazy">
-          <h3><i class="fa-solid fa-mobile-alt"></i> App Building</h3>
-          <p>High-performance mobile applications for iOS and Android.</p>
+          <h3><i class="fa-solid fa-star"></i> App Building</h3>
+          <p>High-performance mobile apps for iOS and Android.</p>
         </div>
         <div class="card" style="--index: 5;">
           <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028" alt="E-commerce Website" loading="lazy">
@@ -486,20 +450,20 @@
         </div>
         <div class="card" style="--index: 6;">
           <img src="https://images.unsplash.com/photo-1558655146-d09347e92766" alt="Gaming Website" loading="lazy">
-          <h3><i class="fa-solid fa-gamepad"></i> Gaming Website</h3>
-          <p>Engaging gaming platforms with immersive user experiences.</p>
+          <h3><i class="fa-solid fa-gamepad"></i> Gaming Websites</h3>
+          <p>Engaging websites with interactive platforms for immersive user experiences.</p>
         </div>
       </div>
     </section>
 
     <section class="cta-banner">
       <h3>Ready to Transform Your Business?</h3>
-      <p>Explore our services and start your journey with Ark Algo Labs today!</p>
+      <p>Explore our services and start your journey today!</p>
       <a href="#get-started" class="btn" aria-label="Get Started">Get Started Now</a>
     </section>
 
     <section id="portfolio">
-      <h2>Our Work</h2>
+      <h2>Portfolio</h2>
       <div class="portfolio-filters">
         <button class="btn filter active" data-filter="All">All</button>
         <button class="btn filter" data-filter="Trading">Trading</button>
@@ -508,39 +472,39 @@
       </div>
       <div class="portfolio">
         <div class="card" data-category="Trading" style="--index: 1;">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="Crypto Trading Bot" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1460925894-af7-c52f-90ad827f1b" alt="Crypto Trading Bot" loading="lazy">
           <h3>Crypto Trading Bot</h3>
-          <p>A fully automated bot delivering consistent profits in the crypto market.</p>
+          <p>A fully automated trading system delivering consistent results in cryptocurrency markets.</p>
         </div>
         <div class="card" data-category="Websites" style="--index: 2;">
-          <img src="https://images.unsplash.com/photo-1560617544-efc3db8a1025" alt="E-commerce Store" loading="lazy">
-          <h3>E-commerce Store</h3>
-          <p>A scalable online store with fast checkout and payment integration.</p>
+          <img src="https://images.unsplash.com/photo-14973662105479-ffa5bc916735" alt="E-commerce Website" loading="lazy">
+          <h3>E-commerce Website</h3>
+          <p>A scalable online store with seamless checkout and secure payment integrations.</p>
         </div>
         <div class="card" data-category="Websites" style="--index: 3;">
-          <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620" alt="Gaming Platform" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1547658719-1f5dd0b3" alt="Gaming Platform" loading="lazy">
           <h3>Gaming Platform</h3>
-          <p>An interactive gaming website keeping users engaged.</p>
+          <p>An engaging gaming website with interactive features to captivate users.</p>
         </div>
       </div>
     </section>
 
     <section id="testimonials">
-      <h2>What Our Clients Say</h2>
+      <h2>Client Testimonials</h2>
       <div class="testimonials">
         <div class="card" style="--index: 1;">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>"Ark Algo Labs' trading bots have taken my trading strategy to the next level. Highly recommend!"</p>
+          <p>"Ark Algo's trading bots have significantly improved my trading outcomes. Highly recommended!"</p>
           <h3>- Rohan Sharma</h3>
         </div>
         <div class="card" style="--index: 2;">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-alt"></i></div>
-          <p>"Their website building service is top-notch. My business is thriving online!"</p>
+          <p>"Their website development service is exceptional. My online presence has grown remarkably!"</p>
           <h3>- Priya Patel</h3>
         </div>
         <div class="card" style="--index: 3;">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>"I got a custom app built, and the results are outstanding. The support team is very helpful."</p>
+          <p>"The custom app they built for us is outstanding, with excellent support throughout."</p>
           <h3>- Arjun Singh</h3>
         </div>
       </div>
@@ -549,9 +513,9 @@
     <section id="client-logos">
       <h2>Trusted By</h2>
       <div class="client-logos">
-        <img src="https://logo.clearbit.com/amazon.com" alt="Amazon Logo" loading="lazy">
-        <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft Logo" loading="lazy">
-        <img src="https://logo.clearbit.com/shopify.com" alt="Shopify Logo" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1521747116042-5a81077343ef" alt="Client 1 Logo" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5" alt="Client 2 Logo" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094" alt="Client 3 Logo" loading="lazy">
       </div>
     </section>
 
@@ -600,7 +564,7 @@
     </div>
 
     <div id="whatsapp">
-       <a id="whatsappLink" class="btn" target="_blank" aria-label="Contact via WhatsApp">
+      <a id="whatsappLink" class="btn" target="_blank" aria-label="Contact via WhatsApp">
         <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Contact via WhatsApp
       </a>
     </div>
@@ -676,9 +640,9 @@
 
     <footer>
       <div class="social">
-        <a href="https://twitter.com" target="_blank" title="Twitter" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-        <a href="https://www.linkedin.com/in/ehsan-shaikh-0760b9334?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/ahsanshaikh990?igsh=MWxrMnZqd2Ixa3B0MQ==" target="_blank" title="Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
       </div>
       <div class="links">
         <a href="#home">Home</a>
@@ -709,9 +673,9 @@
 
       // Hamburger Menu
       const hamburger = document.querySelector('.hamburger');
-      const sidebar = document.querySelector('.sidebar');
+      const navLinks = document.querySelector('.nav-links');
       hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
+        navLinks.classList.toggle('active');
       });
 
       // Smooth Scroll
@@ -721,8 +685,8 @@
           document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
           });
-          if (sidebar.classList.contains('active')) {
-            sidebar.classList.remove('active');
+          if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
           }
         });
       });
@@ -784,7 +748,7 @@
           },
           Crypto: {
             Auto: 'https://payments.cashfree.com/links?code=T8l2ot7jmje0',
-            Signal: 'https://payments.cashfree.com/links?code=H8l2pfop4je0',
+            Signal: 'https://payments.cashfree.com/links?code=H8mo7pfop4je0',
           },
           Forex: {
             Auto: 'https://payments.cashfree.com/links?code=m8l2pn0vtcdg',
@@ -801,6 +765,7 @@
         EcommerceWebsite: 'https://payments.cashfree.com/links?code=r8mo7i4jnnr0',
         GamingWebsite: 'https://payments.cashfree.com/links?code=i8mo7ktm9nr0',
       };
+
       function updateDropdowns() {
         const service = document.getElementById("service").value;
         const subServiceSelect = document.getElementById("subService");
@@ -873,11 +838,6 @@
           price = prices[service];
         }
 
-        if (!link) {
-          alert("Payment link is unavailable for this service. Please contact support.");
-          return;
-        }
-
         buyLinks.innerHTML = `<a href="${link}" target="_blank" class="btn" aria-label="Pay Now">Pay ₹${price} Now</a>`;
         document.getElementById("payment").style.display = "block";
       }
@@ -928,4 +888,3 @@
     </script>
   </body>
 </html>
-   
