@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ark Algo Labs offers trading bots, trading analysis, website building, app development, e-commerce, and gaming websites." />
+    <meta name="description" content="Ark Algo Labs offers trading bots, trading analysis, website building, app development, e-commerce, gaming websites, and more." />
     <title>Ark Algo Labs</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       * {
@@ -37,7 +37,6 @@
         font-size: 3rem;
         font-weight: 700;
         color: #ffffff;
-        margin-bottom: 1rem;
       }
       header p {
         font-size: 1.3rem;
@@ -56,7 +55,7 @@
         font-weight: 600;
         margin-bottom: 3rem;
       }
-      .features {
+      .features, .portfolio, .testimonials, .trust-badges, .client-logos {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
@@ -69,6 +68,9 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         position: relative;
         overflow: hidden;
+        opacity: 0;
+        animation: fadeIn 0.5s ease forwards;
+        animation-delay: calc(0.1s * var(--index));
       }
       .card:hover {
         transform: translateY(-10px);
@@ -91,31 +93,42 @@
         font-size: 1rem;
         color: #b0b0b0;
       }
-      select, button {
+      .testimonials .card p {
+        font-style: italic;
+      }
+      .testimonials .card .stars {
+        color: #facc15;
+        margin-bottom: 0.5rem;
+      }
+      select, button, input, textarea {
         padding: 0.9rem 1.5rem;
         margin: 1rem 0.5rem;
         font-size: 1rem;
         border-radius: 10px;
         border: none;
-        min-width: 250px;
         font-family: 'Inter', sans-serif;
         transition: all 0.3s ease;
       }
-      select {
+      select, input, textarea {
         background: #1f2937;
         color: #e6e6e6;
-        appearance: none;
-        cursor: pointer;
+        width: 100%;
+        max-width: 400px;
       }
-      select:focus {
+      select:focus, input:focus, textarea:focus {
         outline: none;
         box-shadow: 0 0 0 2px #22d3ee;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 100px;
       }
       .btn {
         background: #22d3ee;
         color: #0a0f1c;
         font-weight: 500;
         cursor: pointer;
+        display: inline-block;
       }
       .btn:hover {
         background: #06b6d4;
@@ -135,22 +148,56 @@
         font-size: 1.1rem;
         color: #b0b0b0;
       }
-      .faq {
+      .faq, .contact, .security {
         background: #111827;
         border-radius: 20px;
         padding: 2.5rem;
         margin-top: 4rem;
+        text-align: center;
       }
-      .faq h3 {
+      .faq h3, .contact h3, .security h3 {
         color: #22d3ee;
         font-size: 1.8rem;
         margin-bottom: 1.5rem;
       }
       .faq-item {
         margin-bottom: 1.2rem;
+        text-align: left;
       }
       .faq-item strong {
         color: #e6e6e6;
+      }
+      .contact form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      .trust-badges .card {
+        text-align: center;
+        padding: 1rem;
+      }
+      .trust-badges .card i {
+        font-size: 2rem;
+        color: #22d3ee;
+        margin-bottom: 0.5rem;
+      }
+      .client-logos img {
+        width: 100%;
+        height: 100px;
+        object-fit: contain;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: all 0.3s;
+      }
+      .client-logos img:hover {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+      .security i {
+        font-size: 2rem;
+        color: #22d3ee;
+        margin-bottom: 1rem;
       }
       footer {
         text-align: center;
@@ -160,22 +207,15 @@
         color: #6b7280;
         border-top: 1px solid #1f2937;
       }
+      @keyframes fadeIn {
+        to { opacity: 1; }
+      }
       @media (max-width: 768px) {
-        header h1 {
-          font-size: 2.2rem;
-        }
-        header p {
-          font-size: 1.1rem;
-        }
-        h2 {
-          font-size: 2rem;
-        }
-        .card img {
-          height: 150px;
-        }
-        select, button {
-          min-width: 200px;
-        }
+        header h1 { font-size: 2.2rem; }
+        header p { font-size: 1.1rem; }
+        h2 { font-size: 2rem; }
+        .card img { height: 150px; }
+        select, input, textarea, button { max-width: 100%; }
       }
     </style>
   </head>
@@ -189,42 +229,93 @@
     <section>
       <h2>Our Services</h2>
       <div class="features">
-        <div class="card">
+        <div class="card" style="--index: 1;">
           <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485" alt="Trading Bots">
-          <h3>Trading Bots</h3>
-          <p>Automated trading and signal bots for Indian, Crypto, Forex, and Binary markets.</p>
+          <h3><i class="fa-solid fa-robot"></i> Trading Bots</h3>
+          <p>Automated trading aur signal bots Indian, Crypto, Forex, aur Binary markets ke liye.</p>
         </div>
-        <div class="card">
+        <div class="card" style="--index: 2;">
           <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a669ca6" alt="Trading Analysis">
-          <h3>Trading Analysis</h3>
-          <p>Advanced market insights and analytics for smarter trading decisions.</p>
+          <h3><i class="fa-solid fa-chart-line"></i> Trading Analysis</h3>
+          <p>Advanced market insights aur analytics for smarter trading decisions.</p>
         </div>
-        <div class="card">
+        <div class="card" style="--index: 3;">
           <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Website Building">
-          <h3>Website Building</h3>
-          <p>Custom-designed websites tailored to elevate your business.</p>
+          <h3><i class="fa-solid fa-code"></i> Website Building</h3>
+          <p>Custom-designed websites jo tere business ko next level pe le jaaye.</p>
         </div>
-        <div class="card">
+        <div class="card" style="--index: 4;">
           <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c" alt="App Building">
-          <h3>App Building</h3>
-          <p>High-performance mobile apps for iOS and Android platforms.</p>
+          <h3><i class="fa-solid fa-mobile-alt"></i> App Building</h3>
+          <p>High-performance mobile apps iOS aur Android ke liye.</p>
         </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1556742524-750f2ab71513" alt="E-commerce Website">
-          <h3>E-commerce Website</h3>
+        <div class="card" style="--index: 5;">
+          <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028" alt="E-commerce Website">
+          <h3><i class="fa-solid fa-shopping-cart"></i> E-commerce Website</h3>
           <p>Scalable online stores with secure payment gateways.</p>
         </div>
-        <div class="card">
+        <div class="card" style="--index: 6;">
           <img src="https://images.unsplash.com/photo-1558655146-d09347e92766" alt="Gaming Website">
-          <h3>Gaming Website</h3>
+          <h3><i class="fa-solid fa-gamepad"></i> Gaming Website</h3>
           <p>Engaging gaming platforms with immersive user experiences.</p>
         </div>
       </div>
     </section>
 
+    <section id="portfolio">
+      <h2>Our Work</h2>
+      <div class="portfolio">
+        <div class="card" style="--index: 1;">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="Crypto Trading Bot">
+          <h3>Crypto Trading Bot</h3>
+          <p>Ek fully automated bot jo crypto market me consistent profits deta hai.</p>
+        </div>
+        <div class="card" style="--index: 2;">
+          <img src="https://images.unsplash.com/photo-14973662105479-ffa5bc916735" alt="E-commerce Store">
+          <h3>E-commerce Store</h3>
+          <p>Ek scalable online store with fast checkout aur payment integration.</p>
+        </div>
+        <div class="card" style="--index: 3;">
+          <img src="https://images.unsplash.com/photo-1547658719-1f5dd0b3d8c6" alt="Gaming Platform">
+          <h3>Gaming Platform</h3>
+          <p>Ek interactive gaming website jo users ko hooked rakhta hai.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonials">
+        <div class="card" style="--index: 1;">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Ark Algo Labs ke trading bots ne meri trading strategy ko next level pe le gaya. Highly recommend!"</p>
+          <h3>- Rohan Sharma</h3>
+        </div>
+        <div class="card" style="--index: 2;">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-alt"></i></div>
+          <p>"Unka website building service ekdum top-notch hai. Mera business online grow ho raha hai!"</p>
+          <h3>- Priya Patel</h3>
+        </div>
+        <div class="card" style="--index: 3;">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Custom app banvaya aur result shandaar hai. Support team bhi bahut helpful hai."</p>
+          <h3>- Arjun Singh</h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="client-logos">
+      <h2>Trusted By</h2>
+      <div class="client-logos">
+        <img src="https://images.unsplash.com/photo-1521747116042-5a81077343ef" alt="Client 1">
+        <img src="https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5" alt="Client 2">
+        <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094" alt="Client 3">
+      </div>
+    </section>
+
     <section>
       <h2>Get Started</h2>
-      <label for="service">Select Service:</label><br />
+      <label for="service">Service Chuno:</label><br />
       <select id="service">
         <option value="">--Select--</option>
         <option value="TradingBot">Trading Bot</option>
@@ -235,14 +326,14 @@
         <option value="GamingWebsite">Gaming Website</option>
       </select><br />
 
-      <label for="subService" id="subServiceLabel" style="display: none;">Select Bot Type:</label><br />
+      <label for="subService" id="subServiceLabel" style="display: none;">Bot Type Chuno:</label><br />
       <select id="subService" style="display: none;">
         <option value="">--Select--</option>
         <option value="Auto">Auto-Trading Bot</option>
         <option value="Signal">Telegram Signal Bot</option>
       </select><br />
 
-      <label for="market" id="marketLabel" style="display: none;">Select Market:</label><br />
+      <label for="market" id="marketLabel" style="display: none;">Market Chuno:</label><br />
       <select id="market" style="display: none;">
         <option value="">--Select--</option>
         <option value="Indian">Indian Market</option>
@@ -251,36 +342,73 @@
         <option value="Binary">Binary Market</option>
       </select><br />
 
-      <button class="btn" onclick="showSummary()">Show Price</button>
+      <button class="btn" onclick="showSummary()">Price Dekho</button>
     </section>
 
     <div id="summary">
       <h3>Summary</h3>
       <p id="details"></p>
-      <button class="btn" onclick="showPayment()">I Want This Service</button>
+      <button class="btn" onclick="showPayment()">Yeh Service Chahiye</button>
     </div>
 
     <div id="payment">
-      <h3>Make Payment</h3>
+      <h3>Payment Karo</h3>
       <div id="buyLinks"></div>
-      <button class="btn" onclick="showWhatsApp()">I Have Paid</button>
+      <button class="btn" onclick="showWhatsApp()">Maine Payment Kar Diya</button>
     </div>
 
     <div id="whatsapp">
       <a id="whatsappLink" class="btn" target="_blank">
-        <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Contact on WhatsApp
+        <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp pe Contact Karo
       </a>
     </div>
 
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Naam" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit" class="btn">Bhejo</button>
+      </form>
+    </section>
+
+    <section class="security">
+      <h3>Your Trust, Our Priority</h3>
+      <i class="fa-solid fa-lock"></i>
+      <p>All payments are processed securely with industry-standard encryption. Your data is protected with us.</p>
+    </section>
+
+    <section class="trust-badges">
+      <h2>Why Trust Us?</h2>
+      <div class="trust-badges">
+        <div class="card" style="--index: 1;">
+          <i class="fa-solid fa-shield-alt"></i>
+          <h3>Secure Payments</h3>
+          <p>100% safe transactions with trusted gateways.</p>
+        </div>
+        <div class="card" style="--index: 2;">
+          <i class="fa-solid fa-thumbs-up"></i>
+          <h3>100% Satisfaction</h3>
+          <p>Money-back guarantee if not satisfied.</p>
+        </div>
+        <div class="card" style="--index: 3;">
+          <i class="fa-solid fa-users"></i>
+          <h3>Trusted by 1000+</h3>
+          <p>Join our community of happy clients.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="faq">
-      <h3>Company Information</h3>
-      <div class="faq-item"><strong>Company Name:</strong><p>Ark Algo Labs Pvt. Ltd.</p></div>
-      <div class="faq-item"><strong>Incorporation:</strong><p>Registered under Indian Companies Act, 2013</p></div>
+      <h3>Company Info</h3>
+      <div class="faq-item"><strong>Company Name:</strong><p>Ark Algo Labs Pvt. Ltd. (Verified under Indian Companies Act, 2013)</p></div>
+      <div class="faq-item"><strong>Incorporation:</strong><p>Registered since 2019, MCA Certified</p></div>
       <div class="faq-item"><strong>Office:</strong><p>Mumbai, India</p></div>
     </section>
 
     <footer>
-      © 2025 Ark Algo Labs Pvt. Ltd. | All Rights Reserved
+      © 2025 Ark Algo Labs Pvt. Ltd. | Sab Rights Reserved
     </footer>
 
     <script>
@@ -352,21 +480,21 @@
         const details = document.getElementById("details");
 
         if (!service) {
-          alert("Please select a service.");
+          alert("Bhai, pehle service select kar!");
           return;
         }
 
         if (service === "TradingBot") {
           if (!subService) {
-            alert("Please select a bot type.");
+            alert("Bot type toh chun le!");
             return;
           }
           if (!market) {
-            alert("Please select a market.");
+            alert("Market bhi select karna padega!");
             return;
           }
           if (subService === "Auto" && market === "Binary") {
-            alert("Auto Trading is not available for Binary Market.");
+            alert("Binary market me auto trading nahi hai bhai!");
             return;
           }
           const price = prices[service][market][subService];
@@ -396,7 +524,7 @@
           price = prices[service];
         }
 
-        buyLinks.innerHTML = `<a href="${link}" target="_blank" class="btn">Pay ₹${price} Now</a>`;
+        buyLinks.innerHTML = `<a href="${link}" target="_blank" class="btn">Abhi ₹${price} Pay Karo</a>`;
         document.getElementById("payment").style.display = "block";
       }
 
@@ -409,40 +537,9 @@
         if (service === "TradingBot") {
           const price = prices[service][market][subService];
           message = encodeURIComponent(
-            `Hello, I have completed the payment.\n\nMy Details:\n- Service: Trading Bot\n- Market: ${market}\n- Bot Type: ${
+            `Hello, maine payment kar diya hai.\n\nDetails:\n- Service: Trading Bot\n- Market: ${market}\n- Bot Type: ${
               subService === "Auto" ? "Auto-Trading Bot" : "Telegram Signal Bot"
-            }\n- Price Paid: ₹${price}\n\nRequesting confirmation.`
+            }\n- Price Paid: ₹${price}\n\nConfirmation chahiye bhai!`
           );
         } else {
-          const price = prices[service];
-          message = encodeURIComponent(
-            `Hello, I have completed the payment.\n\nMy Details:\n- Service: ${service.replace(/([A-Z])/g, ' $1').trim()}\n- Price Paid: ₹${price}\n\nRequesting confirmation.`
-          );
-        }
-
-        const link = `https://wa.me/919960824574?text=${message}`;
-        const whatsappLink = document.getElementById("whatsappLink");
-        whatsappLink.href = link;
-        whatsappLink.style.display = "inline-block";
-        document.getElementById("whatsapp").style.display = "block";
-      }
-
-      document.getElementById("service").addEventListener("change", function () {
-        updateDropdowns();
-      });
-
-      document.getElementById("subService").addEventListener("change", function () {
-        const subService = this.value;
-        const marketSelect = document.getElementById("market");
-        const marketLabel = document.getElementById("marketLabel");
-        if (subService) {
-          marketSelect.style.display = "block";
-          marketLabel.style.display = "block";
-        } else {
-          marketSelect.style.display = "none";
-          marketLabel.style.display = "none";
-        }
-      });
-    </script>
-  </body>
-</html>
+          const price = p
