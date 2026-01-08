@@ -460,73 +460,105 @@
                     </div>
                 </div>
                 
-                <!-- Sidebar with 160×300 Banner -->
+                <!-- Sidebar Ad 160x300 (Desktop Only) -->
                 <div class="ad-sidebar ad-sidebar-desktop" style="flex: 0 0 160px;">
                     <script>
-                      atOptions = {
-                        'key' : 'ff5b4e1a7f064147a90a1733792d47f7',
-                        'format' : 'iframe',
-
-            .whatsapp-float:hover {
-                transform: scale(1.1);
-                animation: none;
-                box-shadow: 0 0 15px rgba(37, 211, 102, 0.8);
-            }
-                </p>
-                <a href="https://wa.me/917517420170?text=Hello%20Ark%20Algo%20Labs,%20I%20am%20interested%20in%20your%20digital%20solutions." target="_blank" class="btn btn-primary">
-                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                </a>
-                <a href="mailto:youremail@example.com" class="btn btn-outline" style="margin-left: 20px;">
-                     <i class="fas fa-envelope"></i> Send an Email
-                </a>
+                        atOptions = {
+                            'key' : 'ff5b4e1a7f064147a90a1733792d47f7',
+                            'format' : 'iframe',
+                            'height' : 300,
+                            'width' : 160,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/ff5b4e1a7f064147a90a1733792d47f7/invoke.js"></script>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer>
-            <div class="container text-center">
-                <p>&copy; 2024 **Ark Algo Labs**. All Rights Reserved. | Solutions powered by Technology.</p>
-            </div>
-        </footer>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const observerOptions = {
-                    root: null,
-                    rootMargin: '0px',
-                    threshold: 0.2
-                };
-
-                const observer = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animated');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, observerOptions);
-
-                document.querySelectorAll('[data-animate]').forEach(el => {
-                    observer.observe(el);
-                });
-            });
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-heading">Impactful Projects</h2>
+            <p class="section-subheading">A glimpse into our successful deployments.</p>
             
-            // Simple smooth scroll for navigation
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
+            <div class="portfolio-grid">
+                <div class="project-item" data-animate="slide-right">
+                    <h4>Global B2C E-commerce Platform</h4>
+                    <p>Migrated 50K products and optimized the checkout flow, resulting in a 25% revenue jump.</p>
+                    <span>E-commerce | Scaling & Migration</span>
+                </div>
+                <div class="project-item" data-animate="slide-right">
+                    <h4>Proprietary Hedging Bot</h4>
+                    <p>Developed a custom arbitrage solution for cross-exchange trading with sub-second execution speed.</p>
+                    <span>Trading Bot | High-Frequency Strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    const targetId = this.getAttribute('href');
-                    if (targetId && targetId !== '#') {
-                        document.querySelector(targetId).scrollIntoView({
-                            behavior: 'smooth'
-                        });
+    <section id="contact" class="text-center">
+        <div class="container">
+            <h2 class="section-heading">Ready for Transformation?</h2>
+            <p class="section-subheading">Let's discuss how we can elevate your digital presence and automate your financial strategies.</p>
+            
+            <p style="font-size: 1.4em; font-weight: 600; color: var(--primary); margin-bottom: 30px;">
+                Connect directly for a personalized consultation.
+            </p>
+            <a href="https://wa.me/917517420170?text=Hello%20Ark%20Algo%20Labs,%20I%20am%20interested%20in%20your%20digital%20solutions." target="_blank" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <a href="mailto:youremail@example.com" class="btn btn-outline" style="margin-left: 20px;">
+                 <i class="fas fa-envelope"></i> Send an Email
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 **Ark Algo Labs**. All Rights Reserved. | Solutions powered by Technology.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
                     }
                 });
-            });
-        </script>
-        
-        <!-- Popunder Ad - Global -->
-        <script src="https://pl28428618.effectivegatecpm.com/28/32/4e/28324e48c2f3761578574537eca7681f.js"></script>
-    </body>
+            }, observerOptions);
 
-    </html>
+            document.querySelectorAll('[data-animate]').forEach(el => {
+                observer.observe(el);
+            });
+        });
+        
+        // Simple smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    
+    <!-- Popunder Ad - Global -->
+    <script src="https://pl28428618.effectivegatecpm.com/28/32/4e/28324e48c2f3761578574537eca7681f.js"></script>
+</body>
+
+</html>
